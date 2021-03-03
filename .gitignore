@@ -118,6 +118,7 @@ env.bak/
 venv.bak/
 pythonenv*
 .vscode/*
+resources/images/talhoes_tifs/*
 
 # Spyder project settings
 .spyderproject
