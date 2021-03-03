@@ -21,9 +21,8 @@ def main():
     resized_img = change_size(
         squared_image, original_height, original_width, 0.75)
     show_img(resized_img)
-    colored_img = change_img_color(raw_img, cv2.COLOR_GRAY2BGR)
+    colored_img = change_img_color(resized_img, cv2.COLOR_GRAY2BGR)
     show_img(colored_img)
-
 
 
 def read_img(path):
@@ -97,6 +96,14 @@ def apply_square_crop(img, y, x, size):
     This function apply square crop with a size.
     """
     return img[y:y+size, x:x+size]
+
+
+def change_size(img, original_height, original_width, percent):
+    """
+    # Change Size
+    This function resize an image based on a percentage.
+    """
+    return cv2.resize(img, (int(original_width * percent), int(original_height * percent)))
 
 
 if __name__ == "__main__":
