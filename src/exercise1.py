@@ -15,6 +15,14 @@ def main():
     show_img(restored_img)
     rotated_img = rotate_image(restored_img, cv2.ROTATE_180)
     show_img(rotated_img)
+    (original_height, original_width) = raw_img.shape[:2]
+    squared_image = apply_square_crop(rotated_img, 300, 100, 500)
+    show_img(squared_image)
+    resized_img = change_size(
+        squared_image, original_height, original_width, 0.75)
+    show_img(resized_img)
+    colored_img = change_img_color(raw_img, cv2.COLOR_GRAY2BGR)
+    show_img(colored_img)
 
 
 
@@ -81,6 +89,14 @@ def rotate_image(img, rotation):
     This function apply rotation on image.
     """
     return cv2.rotate(img, rotation)
+
+
+def apply_square_crop(img, y, x, size):
+    """
+    # Rotate Image
+    This function apply square crop with a size.
+    """
+    return img[y:y+size, x:x+size]
 
 
 if __name__ == "__main__":
