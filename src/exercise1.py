@@ -5,23 +5,23 @@ import numpy as np
 
 def main():
     raw_img = read_img('resources/images/1.jpg')
-    show_img(raw_img)
+    show_and_save(raw_img, 1)
     gray_img = change_img_color(raw_img, cv2.COLOR_BGR2GRAY)
-    show_img(gray_img)
+    show_and_save(gray_img, 2)
     noise_img = add_salt_pepper_noise(gray_img, 0.1)
-    show_img(noise_img)
+    show_and_save(noise_img, 3)
     restored_img = apply_median(noise_img)
-    show_img(restored_img)
+    show_and_save(restored_img, 4)
     rotated_img = rotate_image(restored_img, cv2.ROTATE_180)
-    show_img(rotated_img)
+    show_and_save(rotated_img, 5)
     (original_height, original_width) = raw_img.shape[:2]
     squared_image = apply_square_crop(rotated_img, 300, 100, 500)
-    show_img(squared_image)
+    show_and_save(squared_image, 6)
     resized_img = change_size(
         squared_image, original_height, original_width, 0.75)
-    show_img(resized_img)
+    show_and_save(resized_img, 7)
     colored_img = change_img_color(resized_img, cv2.COLOR_GRAY2BGR)
-    show_img(colored_img)
+    show_and_save(colored_img, 8)
 
 
 def read_img(path):
@@ -32,11 +32,12 @@ def read_img(path):
     return cv2.imread(path)
 
 
-def show_img(img):
+def show_and_save(img, img_number):
     """
     # Show Image
-    This function show image.
+    This function show and save an image.
     """
+    cv2.imwrite("resources/results/{0}.png".format(img_number), img)
     cv2.imshow("Image", img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
