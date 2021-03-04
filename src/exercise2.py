@@ -30,6 +30,7 @@ def detect_faces(_path):
         "resources/model/mmod_human_face_detector.dat")
 
     for _file in pictures:
+        print(_file)
         mtcnn_detect(mtcnn_model, _file)
         cnn_detect(cnn_model, _file)
 
@@ -45,7 +46,7 @@ def mtcnn_detect(model, _file):
     detected_faces = model.detect_faces(img)
     if detected_faces:
         print("MTCNN: {0} faces".format(len(detected_faces)))
-    return len(detected_faces)
+    return len(detected_faces) if detected_faces else 0
 
 
 def cnn_detect(model, _file):
@@ -53,10 +54,11 @@ def cnn_detect(model, _file):
     # CNN Detection
     This function does face detection with CNN and dlib.
     """
-    detected_faces = model(_file, 2)
+    img = cv2.imread(_file)
+    detected_faces = model(img, 2)
     if detected_faces:
         print("CNN: {0} faces".format(len(detected_faces)))
-    return len(detected_faces)
+    return len(detected_faces) if detected_faces else 0
 
 
 if __name__ == "__main__":
