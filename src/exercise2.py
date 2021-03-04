@@ -5,21 +5,6 @@ import dlib
 from os import path
 from mtcnn import MTCNN
 from natsort import natsorted
-from matplotlib import pyplot as plt
-
-
-"""
-print("Faces detectadas: ", len(facesDetectadas))
-for face in facesDetectadas:
-    e, t, d, b, c = (int(face.rect.left()), int(face.rect.top()), int(
-        face.rect.right()), int(face.rect.bottom()), face.confidence)
-    print(c)
-    cv2.rectangle(imagem, (e, t), (d, b), (255, 255, 0), 2)
-
-cv2.imshow("Detector CNN", imagem)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-"""
 
 
 def detect_faces(_path):
