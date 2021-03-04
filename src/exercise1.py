@@ -4,7 +4,7 @@ import numpy as np
 
 
 def main():
-    raw_img = read_img('resources/images/1.jpg')
+    raw_img = read_img('resources/images/image.jpg')
     show_and_save(raw_img, 1)
     gray_img = change_img_color(raw_img, cv2.COLOR_BGR2GRAY)
     show_and_save(gray_img, 2)
