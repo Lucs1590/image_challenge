@@ -20,7 +20,7 @@ def main():
     resized_img = change_size(
         squared_image, original_height, original_width, 0.75)
     show_and_save(resized_img, 7)
-    colored_img = change_img_color(resized_img, cv2.COLOR_GRAY2BGR)
+    colored_img = change_img_color(resized_img, cv2.COLOR_GRAY2RGB)
     show_and_save(colored_img, 8)
 
 
