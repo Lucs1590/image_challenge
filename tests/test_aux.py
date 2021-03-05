@@ -20,6 +20,10 @@ class TestAuxiliaryUnit(unittest.TestCase):
         image_returned_shape = image_returned.shape
         self.assertNotEqual(image_shape, image_returned_shape)
 
+    def test_change_image_color(self):
+        image = exercise.change_img_color(self.image, cv2.COLOR_BGR2GRAY)
+        self.assertEqual(len(image.shape), 2)
+
 
 if __name__ == '__main__':
     unittest.main()
