@@ -37,7 +37,7 @@ def show_and_save(img, img_number):
     # Show Image
     This function show and save an image.
     """
-    cv2.imwrite("resources/results/{0}.png".format(img_number), img)
+    cv2.imwrite("resources/results1/{0}.png".format(img_number), img)
     cv2.imshow("Image", img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
