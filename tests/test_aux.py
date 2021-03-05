@@ -24,6 +24,10 @@ class TestAuxiliaryUnit(unittest.TestCase):
         image = exercise.change_img_color(self.image, cv2.COLOR_BGR2GRAY)
         self.assertEqual(len(image.shape), 2)
 
+    def test_square_crop(self):
+        image = exercise.apply_square_crop(self.image, 200, 200, 700)
+        self.assertEqual(image.shape[0], image.shape[1])
+
 
 if __name__ == '__main__':
     unittest.main()
