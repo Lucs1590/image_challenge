@@ -4,6 +4,9 @@ import numpy as np
 
 
 def main():
+    """# Main
+    This is the backbone function, which calls all other functions.
+    """    
     raw_img = read_img('resources/images/image.jpg')
     show_and_save(raw_img, 1)
     gray_img = change_img_color(raw_img, cv2.COLOR_BGR2GRAY)
