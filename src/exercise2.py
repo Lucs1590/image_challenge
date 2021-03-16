@@ -8,6 +8,12 @@ from natsort import natsorted
 
 
 def detect_faces(_path):
+    """ # Detect Faces
+    This is the backbone function, which calls all other functions.
+
+    Args:
+        _path (str): path of reference image.
+    """
     pictures = glob.glob(path.join(_path, "*.jpg")).copy()
     pictures = natsorted(pictures)
     mtcnn_model = MTCNN()
@@ -19,13 +25,17 @@ def detect_faces(_path):
         mtcnn_detect(mtcnn_model, _file)
         cnn_detect(cnn_model, _file)
 
-    return
-
 
 def mtcnn_detect(model, _file):
-    """
-    # MTCNN Detection
+    """# MTCNN Detection
     This function does face detection with MTCNN.
+
+    Args:
+        model (mtcnn.mtcnn.MTCNN): model to run mtcnn detection.
+        _file (str): path to reference image.
+
+    Returns:
+        int: number of detected faces.
     """
     img = cv2.cvtColor(cv2.imread(_file), cv2.COLOR_BGR2RGB)
     detected_faces = model.detect_faces(img)
@@ -35,9 +45,15 @@ def mtcnn_detect(model, _file):
 
 
 def cnn_detect(model, _file):
-    """
-    # CNN Detection
+    """# CNN Detection
     This function does face detection with CNN and dlib.
+
+    Args:
+        model (_dlib_pybind11.cnn_face_detection_model_v1): model to run cnn detection.
+        _file (str): path to reference image.
+
+    Returns:
+        int: number of detected faces.
     """
     img = cv2.imread(_file)
     detected_faces = model(img, 2)
