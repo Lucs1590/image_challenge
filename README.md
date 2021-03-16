@@ -21,3 +21,16 @@ To check the test question, run:
 ```bash
 python -m unittest discover tests/
 ```
+
+# Documentation
+To read the documentation for exercise 1 or 2, in the ```src``` folder, you can execute, respectively:
+```bash
+python -m pydoc src/exercise1.py
+```
+```bash
+python -m pydoc src/exercise2.py
+```
+Or, to view in browser:
+```bash
+python -m pydoc -b
+```
